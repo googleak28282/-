@@ -1,11 +1,10 @@
 //by googleak28282
 #include<bits/stdc++.h>
-#define inf 10000005
+#define inf 10005
+#define maxn 1000000
 using namespace std;
-typedef long long ll;
-ll fast_pow(ll n,ll m)
-{
-	ll ans=1;
+int fast_pow(int n,int m){
+	int ans=1;
     while(m>0) {
         if(m % 2 == 1)
         	ans = (ans * n);
@@ -14,22 +13,22 @@ ll fast_pow(ll n,ll m)
     }
 	return ans;
 }
-ll fib[inf];
-int main()
-{
-	ll number,power;
-	cin>>number>>power;
+int fib[inf];
+int main(){
+	int num,power;
+	cin>>num>>power;
+	int mod=fast_pow(num,power);
 	fib[0]=0;
 	fib[1]=1;
-	for(int i=2;i<inf;i++)
+	for(int i=0;i<inf;i++)
 	{
-		fib[i]=(fib[i-1]+fib[i-2])%fast_pow(number,power);
+		fib[i]=(fib[i-1]+fib[i-2])%mod;
 	}
-	for(int i=0;i<1000;i++)
-	{ 
+	for(int i=0;i<inf;i++)
+	{
 		cout<<i<<" "<<fib[i];
 		if((fib[i]==0)&&(fib[i+1]==1)&&(fib[i+2]==1)) cout<<" *";
 		cout<<"\n";
-	}
+	 } 
 	return 0;
 }
